@@ -1,6 +1,6 @@
 package dev.cassis2310.falloutmc;
 
-import dev.cassis2310.falloutmc.item.FalloutMcItems;
+import dev.cassis2310.falloutmc.init.*;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -30,6 +30,12 @@ public class FalloutMc
         bus.addListener(this::commonSetup);
 
         FalloutMcItems.register(bus);
+        FalloutMcSounds.register(bus);
+        FalloutMcBlocks.register(bus);
+        FalloutMcEffects.register(bus);
+        FalloutMcEntities.register(bus);
+        FalloutMcParticles.register(bus);
+        FalloutMcDataComponents.register(bus);
 
         NeoForge.EVENT_BUS.register(this);
         bus.addListener(this::addCreative);
