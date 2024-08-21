@@ -1,5 +1,6 @@
 package dev.cassis2310.falloutmc;
 
+import dev.cassis2310.falloutmc.item.FalloutMcItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -27,6 +28,9 @@ public class FalloutMc
 
     public FalloutMc(IEventBus bus, ModContainer container) {
         bus.addListener(this::commonSetup);
+
+        FalloutMcItems.register(bus);
+
         NeoForge.EVENT_BUS.register(this);
         bus.addListener(this::addCreative);
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
