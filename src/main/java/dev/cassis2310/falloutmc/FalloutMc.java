@@ -44,6 +44,7 @@ public class FalloutMc
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
+        LOGGER.info("{}: Performing common setup", MOD_NAME);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -55,6 +56,7 @@ public class FalloutMc
     public void onServerStarting(ServerStartingEvent event)
     {
         // Some server starting code
+        LOGGER.info("{}: Starting server", MOD_NAME);
     }
 
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
