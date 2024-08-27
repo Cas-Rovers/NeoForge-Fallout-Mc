@@ -6,7 +6,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class FalloutMcSounds {
+public class FalloutMcSounds
+{
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(
             BuiltInRegistries.SOUND_EVENT,
             FalloutMc.MOD_ID
@@ -14,7 +15,8 @@ public class FalloutMcSounds {
 
     // Register all sounds here.
 
-    public static void register(IEventBus bus) {
+    public static void register(IEventBus bus)
+    {
         SOUND_EVENTS.register(bus);
     }
 }

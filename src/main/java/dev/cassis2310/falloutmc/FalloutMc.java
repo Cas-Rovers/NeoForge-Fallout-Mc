@@ -1,6 +1,7 @@
 package dev.cassis2310.falloutmc;
 
 import dev.cassis2310.falloutmc.init.*;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -26,7 +27,10 @@ public class FalloutMc
     public static final String MOD_NAME = "FalloutMc";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public FalloutMc(IEventBus bus, ModContainer container) {
+    public FalloutMc(IEventBus bus, ModContainer container)
+    {
+        LOGGER.info("{}: Initializing", MOD_NAME);
+
         bus.addListener(this::commonSetup);
 
         FalloutMcItems.register(bus);
@@ -36,13 +40,17 @@ public class FalloutMc
         FalloutMcEntities.register(bus);
         FalloutMcParticles.register(bus);
         FalloutMcDataComponents.register(bus);
+        FalloutMcContainerTypes.register(bus);
 
         NeoForge.EVENT_BUS.register(this);
         bus.addListener(this::addCreative);
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        NeoForgeMod.enableMilkFluid();
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
         // Some common setup code
         LOGGER.info("{}: Performing common setup", MOD_NAME);
     }
